@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace SOLID.classes
@@ -27,7 +28,7 @@ namespace SOLID.classes
                 return YearlyRate.Value / 12;
             }
 
-            return 0;
+            throw new ArgumentException("Yearly Rate is Missing");
         }
     }
 }

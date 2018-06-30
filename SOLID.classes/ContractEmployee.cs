@@ -1,3 +1,5 @@
+using System;
+
 namespace SOLID.classes
 {
     public class ContractEmployee : Employee
@@ -21,7 +23,7 @@ namespace SOLID.classes
                 return HourlyRate.Value * WeeklyHourAllotment.Value * 4;
             }
 
-            return 0;
+            throw new ArgumentException("Hourly rate or Weekly allotment are missing");
         }
     }
 }

@@ -27,5 +27,7 @@ namespace SOLID.tests
             var contracrEmployee = EmployeeFactory.CreateEmployee(EmployeeType.Contract);
             Assert.IsTrue(contracrEmployee.Type == EmployeeType.Contract);
         }
+
+      
     }
 }

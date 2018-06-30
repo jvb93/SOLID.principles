@@ -1,3 +1,5 @@
+using System;
+
 namespace SOLID.classes
 {
     public static class EmployeeFactory
@@ -13,8 +15,9 @@ namespace SOLID.classes
                 case EmployeeType.Salary:
                     return new SalaryEmployee();
                 default:
-                    return null;
+                    throw new ArgumentException("Employee type invalid");
             }
+
         }
     }
 }
