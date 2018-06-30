@@ -8,6 +8,7 @@ namespace SOLID.classes
         public decimal? HourlyRate { get; set; }
         public decimal? YearlyRate { get; set; }
         public EmployeeType Type { get; }
+        public string Department { get; set; }
 
         public abstract decimal GetMonthlyPaycheck();
      

@@ -8,6 +8,7 @@ namespace SOLID.classes
         decimal? HourlyRate { get; set; }
         decimal? YearlyRate { get; set; }
         EmployeeType Type { get;  }
+        string Department { get; set; }
         decimal GetMonthlyPaycheck();
         string GetFullName();
 

@@ -2,9 +2,9 @@ using System;
 
 namespace SOLID.classes
 {
-    public static class EmployeeFactory
+    public class BasicEmployeeFactory : IEmployeeFactory
     {
-        public static IEmployee CreateEmployee(EmployeeType type)
+        public IEmployee CreateEmployee(EmployeeType type)
         {
             switch (type)
             {

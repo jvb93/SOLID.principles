@@ -10,7 +10,8 @@ namespace SOLID.tests
         [TestMethod]
         public void DefaultFullNameWorks()
         {
-            IEmployee employee = EmployeeFactory.CreateEmployee(EmployeeType.Hourly);
+            IEmployeeFactory basicEmployeeFactory = new BasicEmployeeFactory();
+            IEmployee employee = basicEmployeeFactory.CreateEmployee(EmployeeType.Hourly);
             employee.FirstName = "John";
             employee.LastName = "Smith";
 
@@ -20,7 +21,8 @@ namespace SOLID.tests
         [TestMethod]
         public void CanOverrideFullName()
         {
-            IEmployee employee = EmployeeFactory.CreateEmployee(EmployeeType.Salary);
+            IEmployeeFactory basicEmployeeFactory = new BasicEmployeeFactory();
+            IEmployee employee = basicEmployeeFactory.CreateEmployee(EmployeeType.Salary);
             employee.FirstName = "John";
             employee.LastName = "Smith";
 
@@ -30,26 +32,28 @@ namespace SOLID.tests
         [TestMethod]
         public void CanGetHourlyMonthlyPaycheck()
         {
-            IEmployee employee = EmployeeFactory.CreateEmployee(EmployeeType.Hourly);
+            IEmployeeFactory basicEmployeeFactory = new BasicEmployeeFactory();
+            IEmployee employee = basicEmployeeFactory.CreateEmployee(EmployeeType.Hourly);
             employee.HourlyRate = 10;
             employee.WeeklyHourAllotment = 40;
 
             Assert.IsTrue(employee.GetMonthlyPaycheck() == 10 * 40 * 4);
 
-            IEmployee employeeFailure = EmployeeFactory.CreateEmployee(EmployeeType.Hourly);
+            IEmployee employeeFailure = basicEmployeeFactory.CreateEmployee(EmployeeType.Hourly);
             Assert.ThrowsException<ArgumentException>(() => employeeFailure.GetMonthlyPaycheck());
         }
 
         [TestMethod]
         public void CanGetContractMonthlyPaycheck()
         {
-            IEmployee employee = EmployeeFactory.CreateEmployee(EmployeeType.Contract);
+            IEmployeeFactory basicEmployeeFactory = new BasicEmployeeFactory();
+            IEmployee employee = basicEmployeeFactory.CreateEmployee(EmployeeType.Contract);
             employee.HourlyRate = 10;
             employee.WeeklyHourAllotment = 40;
 
             Assert.IsTrue(employee.GetMonthlyPaycheck() == 10 * 40 * 4);
 
-            IEmployee employeeFailure = EmployeeFactory.CreateEmployee(EmployeeType.Contract);
+            IEmployee employeeFailure = basicEmployeeFactory.CreateEmployee(EmployeeType.Contract);
             Assert.ThrowsException<ArgumentException>(() => employeeFailure.GetMonthlyPaycheck());
 
         }
@@ -57,12 +61,13 @@ namespace SOLID.tests
         [TestMethod]
         public void CanGetSalaryMonthlyPaycheck()
         {
-            IEmployee employee = EmployeeFactory.CreateEmployee(EmployeeType.Salary);
+            IEmployeeFactory basicEmployeeFactory = new BasicEmployeeFactory();
+            IEmployee employee = basicEmployeeFactory.CreateEmployee(EmployeeType.Salary);
             employee.YearlyRate = 120000;
 
             Assert.IsTrue(employee.GetMonthlyPaycheck() == 120000m / 12);
 
-            IEmployee employeeFailure = EmployeeFactory.CreateEmployee(EmployeeType.Salary);
+            IEmployee employeeFailure = basicEmployeeFactory.CreateEmployee(EmployeeType.Salary);
             Assert.ThrowsException<ArgumentException>(() => employeeFailure.GetMonthlyPaycheck());
         }
 
