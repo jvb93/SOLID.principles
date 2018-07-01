@@ -11,7 +11,7 @@ namespace SOLID.classes
 
         }
 
-        public ContractEmployee(decimal weeklyHourAllotment, decimal hourlyRate) : base(EmployeeType.Hourly)
+        public ContractEmployee(decimal weeklyHourAllotment, decimal hourlyRate) : base(EmployeeType.Contract)
         {
             WeeklyHourAllotment = weeklyHourAllotment;
             HourlyRate = hourlyRate;

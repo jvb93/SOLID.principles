@@ -4,16 +4,16 @@ namespace SOLID.classes
 {
     public class BasicEmployeeFactory : IEmployeeFactory
     {
-        public IEmployee CreateEmployee(EmployeeType type)
+        public IEmployee CreateEmployee(EmployeeBuilderContract contract)
         {
-            switch (type)
+            switch (contract.Type)
             {
                 case EmployeeType.Contract:
-                    return new ContractEmployee();
+                    return new ContractEmployee(contract.WeeklyHourAllotment, contract.HourlyRate);
                 case EmployeeType.Hourly:
-                    return new HourlyEmployee();
+                    return new HourlyEmployee(contract.WeeklyHourAllotment, contract.HourlyRate);
                 case EmployeeType.Salary:
-                    return new SalaryEmployee();
+                    return new SalaryEmployee(contract.YearlyRate);
                 default:
                     throw new ArgumentException("Employee type invalid");
             }

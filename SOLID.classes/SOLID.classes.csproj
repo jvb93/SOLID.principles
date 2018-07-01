@@ -45,6 +45,7 @@
     <Compile Include="ContractEmployee.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="BasicEmployeeFactory.cs" />
+    <Compile Include="EmployeeBuilderContract.cs" />
     <Compile Include="HourlyEmployee.cs" />
     <Compile Include="IEmployee.cs" />
     <Compile Include="IEmployeeFactory.cs" />

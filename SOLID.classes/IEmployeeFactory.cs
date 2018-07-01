@@ -8,6 +8,6 @@ namespace SOLID.classes
 {
     public interface IEmployeeFactory
     {
-        IEmployee CreateEmployee(EmployeeType type);
+        IEmployee CreateEmployee(EmployeeBuilderContract contract);
     }
 }

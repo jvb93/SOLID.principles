@@ -11,7 +11,13 @@ namespace SOLID.tests
         public void CanCreateHourlyEmployee()
         {
             IEmployeeFactory basicEmployeeFactory = new BasicEmployeeFactory();
-            var employee = basicEmployeeFactory.CreateEmployee(EmployeeType.Hourly);
+            var contract = new EmployeeBuilderContract()
+            {
+                HourlyRate = 10,
+                WeeklyHourAllotment = 40,
+                Type = EmployeeType.Hourly
+            };
+            var employee = basicEmployeeFactory.CreateEmployee(contract);
             Assert.IsTrue(employee.Type == EmployeeType.Hourly);
         }
 
@@ -19,7 +25,12 @@ namespace SOLID.tests
         public void CanCreateSalaryEmployee()
         {
             IEmployeeFactory basicEmployeeFactory = new BasicEmployeeFactory();
-            var employee = basicEmployeeFactory.CreateEmployee(EmployeeType.Salary);
+            var contract = new EmployeeBuilderContract()
+            {
+                YearlyRate = 120000,
+                Type = EmployeeType.Salary
+            };
+            var employee = basicEmployeeFactory.CreateEmployee(contract);
             Assert.IsTrue(employee.Type == EmployeeType.Salary);
         }
 
@@ -27,7 +38,13 @@ namespace SOLID.tests
         public void CanCreateContractEmployee()
         {
             IEmployeeFactory basicEmployeeFactory = new BasicEmployeeFactory();
-            var employee = basicEmployeeFactory.CreateEmployee(EmployeeType.Contract);
+            var contract = new EmployeeBuilderContract()
+            {
+                HourlyRate = 10,
+                WeeklyHourAllotment = 40,
+                Type = EmployeeType.Contract
+            };
+            var employee = basicEmployeeFactory.CreateEmployee(contract);
             Assert.IsTrue(employee.Type == EmployeeType.Contract);
         }
 
@@ -35,7 +52,13 @@ namespace SOLID.tests
         public void EmployeesDoNotHaveDepartment()
         {
             IEmployeeFactory basicEmployeeFactory = new BasicEmployeeFactory();
-            var employee = basicEmployeeFactory.CreateEmployee(EmployeeType.Contract);
+            var contract = new EmployeeBuilderContract()
+            {
+                HourlyRate = 10,
+                WeeklyHourAllotment = 40,
+                Type = EmployeeType.Contract
+            };
+            var employee = basicEmployeeFactory.CreateEmployee(contract);
             Assert.IsNull(employee.Department);
         }
 
