@@ -74,24 +74,24 @@ namespace SOLID.tests
         [TestMethod]
         public void CanMakeContractEmployee()
         {
-            IEmployee employee = new ContractEmployee(40, 10);
-            Assert.IsTrue(employee.HourlyRate.Value == 10m);
-            Assert.IsTrue(employee.WeeklyHourAllotment.Value == 40m);
+            var employee = new ContractEmployee(40, 10);
+            Assert.IsTrue(employee.HourlyRate == 10m);
+            Assert.IsTrue(employee.WeeklyHourAllotment == 40m);
         }
 
         [TestMethod]
         public void CanMakeHourlyEmployee()
         {
-            IEmployee employee = new HourlyEmployee(40, 10);
-            Assert.IsTrue(employee.HourlyRate.Value == 10m);
-            Assert.IsTrue(employee.WeeklyHourAllotment.Value == 40m);
+            var employee = new HourlyEmployee(40, 10);
+            Assert.IsTrue(employee.HourlyRate == 10m);
+            Assert.IsTrue(employee.WeeklyHourAllotment == 40m);
         }
 
         [TestMethod]
         public void CanMakeSalaryEmployee()
         {
-            IEmployee employee = new SalaryEmployee(120000);
-            Assert.IsTrue(employee.YearlyRate.Value == 120000);
+            var employee = new SalaryEmployee(120000);
+            Assert.IsTrue(employee.YearlyRate == 120000);
         }
 
 

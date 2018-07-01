@@ -5,6 +5,7 @@ namespace SOLID.classes
 {
     public class SalaryEmployee : Employee
     {
+        public decimal YearlyRate { get; set; }
         public SalaryEmployee() : base(EmployeeType.Salary)
         {
 
@@ -23,12 +24,7 @@ namespace SOLID.classes
 
         public override decimal GetMonthlyPaycheck()
         {
-            if (YearlyRate.HasValue)
-            {
-                return YearlyRate.Value / 12;
-            }
-
-            throw new ArgumentException("Yearly Rate is Missing");
+            return YearlyRate / 12;
         }
     }
 }

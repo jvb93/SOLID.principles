@@ -4,6 +4,8 @@ namespace SOLID.classes
 {
     public class ContractEmployee : Employee
     {
+        public decimal WeeklyHourAllotment { get; set; }
+        public decimal HourlyRate { get; set; }
         public ContractEmployee() : base(EmployeeType.Contract)
         {
 
@@ -18,12 +20,8 @@ namespace SOLID.classes
 
         public override decimal GetMonthlyPaycheck()
         {
-            if (HourlyRate.HasValue && WeeklyHourAllotment.HasValue)
-            {
-                return HourlyRate.Value * WeeklyHourAllotment.Value * 4;
-            }
-
-            throw new ArgumentException("Hourly rate or Weekly allotment are missing");
+            return HourlyRate * WeeklyHourAllotment * 4;
+           
         }
     }
 }
